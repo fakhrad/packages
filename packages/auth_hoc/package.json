@@ -1,0 +1,32 @@
+{
+  "name": "@app-sdk/auth_hoc",
+  "version": "0.0.0",
+  "description": "this package includes implementaion of each api in authentication as hoc ",
+  "keywords": [
+    "Authentication",
+    "Signin",
+    "Signup",
+    "Verifycode"
+  ],
+  "author": "saeedPadyab <padyabsaeed@gmail.com>",
+  "homepage": "https://github.com/saeedPadyab/packages#readme",
+  "license": "ISC",
+  "main": "lib/auth_hoc.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saeedPadyab/packages.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/saeedPadyab/packages/issues"
+  }
+}
