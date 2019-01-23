@@ -3,9 +3,6 @@
     "packages/*"
   ],
   "version": "0.0.15",
-  "command": {
-    "publish": {
-      "verifyAccess": false
-    }
-  }
+  "npmClient": "npm"
+  
 }
