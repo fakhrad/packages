@@ -6,6 +6,7 @@
   "homepage": "https://github.com/saeedPadyab/packages#readme",
   "license": "ISC",
   "main": "lib/login.js",
+  "private": false,
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -27,5 +28,5 @@
     "app-sdk-authentication-api": "^1.0.2",
     "app-sdk-components": "^1.0.0"
   },
-  "gitHead": "8996a7cf296446f90355a5882fa1eace0b6fdf14"
+  "gitHead": "e299d708126f8f289c244120ef5a46798a501a3e"
 }
