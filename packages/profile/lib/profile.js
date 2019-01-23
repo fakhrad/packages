@@ -3,5 +3,5 @@
 module.exports = profile;
 
 function profile() {
-    // TODO
+    var x = 10;
 }
