@@ -3,5 +3,9 @@
   "private": true,
   "devDependencies": {
     "lerna": "^3.10.6"
+  },
+  "dependencies": {
+    "app-sdk-authentication-api": "^1.0.2",
+    "app-sdk-components": "^1.0.0"
   }
 }

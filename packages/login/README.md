@@ -1,11 +1,11 @@
-# `components`
+# `login`
 
 > TODO: description
 
 ## Usage
 
 ```
-const components = require('components');
+const login = require('login');
 
 // TODO: DEMONSTRATE API
 ```
