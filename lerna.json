@@ -2,6 +2,12 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.0.17",
-  "npmClient": "npm"
+  "version": "0.0.14",
+  "npmClient": "npm",
+  "command": {
+    "publish": {
+      "verifyAccess": false,
+      "npmClient": "npm"
+    }
+  }
 }
