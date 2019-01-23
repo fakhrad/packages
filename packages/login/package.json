@@ -26,5 +26,6 @@
   "dependencies": {
     "app-sdk-authentication-api": "^1.0.2",
     "app-sdk-components": "^1.0.0"
-  }
+  },
+  "gitHead": "055d8e41fa5c660cf7593d15e36cb6b0f70ba486"
 }
