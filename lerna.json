@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/*"
+    "packages/profile"
   ],
   "version": "0.0.4",
   "publishConfig": {

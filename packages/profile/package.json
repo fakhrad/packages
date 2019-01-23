@@ -1,11 +1,11 @@
 {
-  "name": "@app-sdk/login",
+  "name": "profile",
   "version": "0.0.4",
   "description": "> TODO: description",
   "author": "saeedPadyab <padyabsaeed@gmail.com>",
   "homepage": "https://github.com/saeedPadyab/packages#readme",
   "license": "ISC",
-  "main": "lib/login.js",
+  "main": "lib/profile.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,10 +22,5 @@
   },
   "bugs": {
     "url": "https://github.com/saeedPadyab/packages/issues"
-  },
-  "dependencies": {
-    "app-sdk-authentication-api": "^1.0.2",
-    "app-sdk-components": "^1.0.0"
-  },
-  "gitHead": "0e68478b752751718b946e6b11bae63013614303"
+  }
 }
