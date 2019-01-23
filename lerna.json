@@ -1,7 +1,9 @@
 {
-  "packages": ["packages/*"],
-  "version": "0.0.2",
-  "publishConfig":{
+  "packages": [
+    "packages/*"
+  ],
+  "version": "0.0.3",
+  "publishConfig": {
     "access": "public"
   }
 }
