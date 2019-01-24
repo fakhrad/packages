@@ -1,11 +1,11 @@
-# `login`
+# `tutorial`
 
 > TODO: description
 
 ## Usage
 
 ```
-const login = require('login');
+const tutorial = require('tutorial');
 
 // TODO: DEMONSTRATE API
 ```

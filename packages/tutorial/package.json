@@ -1,11 +1,11 @@
 {
-  "name": "@app-sdk/login",
-  "version": "0.0.20",
-  "description": "> TODO: description",
+  "name": "@app-sdk/tutorial",
+  "version": "0.0.1",
+  "description": "simple tutorial with image and title and description in center . also it has login and signup button",
   "author": "saeedPadyab <padyabsaeed@gmail.com>",
   "homepage": "https://github.com/saeedPadyab/packages#readme",
   "license": "ISC",
-  "main": "lib/login.js",
+  "main": "lib/tutorial.js",
   "publishConfig": {
     "access": "public"
   },
@@ -27,8 +27,7 @@
     "url": "https://github.com/saeedPadyab/packages/issues"
   },
   "dependencies": {
-    "app-sdk-authentication-api": "^1.0.2",
-    "app-sdk-components": "^1.0.0"
-  },
-  "gitHead": "2670ab81315167c0ce85b5d69c56cbfb742b1a41"
+    "app-sdk-components": "^1.0.1",
+    "react-native-swiper": "^1.5.14"
+  }
 }
