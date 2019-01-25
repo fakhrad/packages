@@ -2,14 +2,14 @@ import React from "react";
 import { StatusBar } from "react-native";
 import Swiper from "react-native-swiper";
 import { styles } from "./styles";
-import { Button, Container, Image, Text  } from "@app-sdk/components";
 import translation from "./translation";
-import {  themeManager } from "@app-sdk/services";
+import { Button, Container, Image, Text } from "@app-sdk/components";
+import { themeManager, languageManager } from "@app-sdk/services";
 
 export default class Tutorial extends React.Component {
   constructor(props) {
     super(props);
-    this.props.addToTranslation(translation);
+    languageManager.addToTranslation(translation);
   }
   componentDidMount() {
     //SplashScreen.hide();
@@ -22,7 +22,7 @@ export default class Tutorial extends React.Component {
   };
   render() {
     let theme = themeManager.getAppTheme();
-    const dotColor =  theme["$color4"];
+    const dotColor = theme["$color4"];
     const dotActiveColor = theme["$color2"];
     return (
       <Container style={styles.container}>
@@ -41,10 +41,10 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {this.props.doTranslate("TUTORIAL_FIRST_SECTION_TITLE")}
+              {languageManager.doTranslate("TUTORIAL_FIRST_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
-              {this.props.doTranslate("TUTORIAL_FIRST_SECTION_DESCRIPTION")}
+              {languageManager.doTranslate("TUTORIAL_FIRST_SECTION_DESCRIPTION")}
             </Text>
           </Container>
           <Container style={styles.slide2}>
@@ -54,10 +54,10 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {this.props.doTranslate("TUTORIAL_SECOND_SECTION_TITLE")}
+              {languageManager.doTranslate("TUTORIAL_SECOND_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
-              {this.props.doTranslate("TUTORIAL_SECOND_SECTION_DESCRIPTION")}
+              {languageManager.doTranslate("TUTORIAL_SECOND_SECTION_DESCRIPTION")}
             </Text>
           </Container>
           <Container style={styles.slide3}>
@@ -67,10 +67,10 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {this.props.doTranslate("TUTORIAL_THIRD_SECTION_TITLE")}
+              {languageManager.doTranslate("TUTORIAL_THIRD_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
-              {this.props.doTranslate("TUTORIAL_THIRD_SECTION_DESCRIPTION")}
+              {languageManager.doTranslate("TUTORIAL_THIRD_SECTION_DESCRIPTION")}
             </Text>
           </Container>
           <Container style={styles.slide4}>
@@ -80,22 +80,22 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {this.props.doTranslate("TUTORIAL_FOURTH_SECTION_TITLE")}
+              {languageManager.doTranslate("TUTORIAL_FOURTH_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
-              {this.props.doTranslate("TUTORIAL_FOURTH_SECTION_DESCRIPTION")}
+              {languageManager.doTranslate("TUTORIAL_FOURTH_SECTION_DESCRIPTION")}
             </Text>
           </Container>
         </Swiper>
         <Container style={styles.actionsContainer}>
           <Button style={styles.actionsBtn} onPress={this.onSignUpClick}>
             <Text style={styles.actionsBtnText}>
-              {this.props.doTranslate("TUTORIAL_BTN_LOGIN")}
+              {languageManager.doTranslate("TUTORIAL_BTN_LOGIN")}
             </Text>
           </Button>
           <Button style={styles.actionsBtn} onPress={this.onSignUpClick}>
             <Text style={styles.actionsBtnText}>
-              {this.props.doTranslate("TUTORIAL_BTN_SIGNUP")}
+              {languageManager.doTranslate("TUTORIAL_BTN_SIGNUP")}
             </Text>
           </Button>
         </Container>
