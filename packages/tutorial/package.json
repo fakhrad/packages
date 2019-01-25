@@ -1,6 +1,6 @@
 {
   "name": "@app-sdk/tutorial",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "simple tutorial with image and title and description in center . also it has login and signup button",
   "author": "saeedPadyab <padyabsaeed@gmail.com>",
   "homepage": "https://github.com/saeedPadyab/packages#readme",
