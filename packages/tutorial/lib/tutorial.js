@@ -22,7 +22,7 @@ export default class Tutorial extends React.Component {
   };
   render() {
     let theme = themeManager.getAppTheme();
-    const dotColor = theme["$color4"];
+    const dotColor =  theme["$color4"];
     const dotActiveColor = theme["$color2"];
     return (
       <Container style={styles.container}>
