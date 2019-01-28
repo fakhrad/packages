@@ -1,0 +1,31 @@
+{
+  "name": "@app-sdk/login",
+  "version": "0.0.1",
+  "description": "login by phone number",
+  "author": "saeedPadyab <padyabsaeed@gmail.com>",
+  "homepage": "https://github.com/saeedPadyab/packages#readme",
+  "license": "ISC",
+  "main": "lib/login.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saeedPadyab/packages.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/saeedPadyab/packages/issues"
+  },
+  "dependencies": {
+    "@app-sdk/components": "^1.0.5",
+    "@app-sdk/services": "^1.0.7",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0"
+  }
+}
