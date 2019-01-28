@@ -1,6 +1,6 @@
 {
   "name": "@app-sdk/login",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "login by phone number",
   "author": "saeedPadyab <padyabsaeed@gmail.com>",
   "homepage": "https://github.com/saeedPadyab/packages#readme",
