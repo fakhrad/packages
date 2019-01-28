@@ -6,6 +6,9 @@
   "homepage": "https://github.com/saeedPadyab/packages#readme",
   "license": "ISC",
   "main": "lib/login.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -27,5 +30,6 @@
     "@app-sdk/components": "^1.0.5",
     "@app-sdk/services": "^1.0.7",
     "react-native-keyboard-aware-scroll-view": "^0.8.0"
-  }
+  },
+  "gitHead": "192ba8f8cad7133c062625cf7daff42291a12404"
 }
