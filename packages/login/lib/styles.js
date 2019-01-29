@@ -1,6 +1,6 @@
-import EStyleSheet from "react-native-extended-stylesheet";
 import { Dimensions } from "react-native";
-const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
+import EStyleSheet from "react-native-extended-stylesheet";
+const { height: deviceHeight ,  width: deviceWidth } = Dimensions.get("window");
 export default EStyleSheet.create({
   scrollKeyboardView: {
     height: deviceHeight

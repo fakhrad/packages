@@ -2,15 +2,15 @@ import React from "react";
 import { Alert, StatusBar } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { languageManager } from "@app-sdk/services";
+import { languageManager, stateManager } from "@app-sdk/services";
+import { logIn } from "@app-sdk/authentication-api";
 
 import {
-  Spinner,
   Text,
-  Button,
   Container,
   Image,
-  PhoneNumberInput
+  PhoneNumberInput,
+  ApiButton
 } from "@app-sdk/components"; // public components
 import styles from "./style";
 import translation from "./translation";
@@ -19,18 +19,8 @@ export default class Login extends React.Component {
   constructor(props) {
     super(props);
     languageManager.addToTranslation(this, translation);
-    this.state = {
-      spinner: false,
-      isValid: false,
-      phoneNumber: ""
-    };
+    this.state = stateManager.registerFormState(this);
   }
-  onChangeText = (isValid, phoneNumber) => {
-    this.setState({ isValid: isValid, phoneNumber: phoneNumber });
-  };
-
-  signIn = async () => {};
-
   render() {
     return (
       <KeyboardAwareScrollView style={styles.scrollKeyboardView}>
@@ -44,23 +34,24 @@ export default class Login extends React.Component {
         </Container>
         <Container style={styles.bottom}>
           <PhoneNumberInput
-            onChange={(isValid, text) => this.onChangeText(isValid, text)}
             placeholder={languageManager.doTranslate(
               this,
               "LOGIN_INPUT_PLACEHLODER"
             )}
             style={styles.bottomInput}
+            bind="phoneNumber"
+            isRequired={true}
           />
-          <Button style={styles.bottomBtn} onPress={this.signIn}>
-            <Spinner
-              size="small"
-              show={this.state.spinner}
-              style={styles.spinner}
-            />
+
+          <ApiButton
+            style={styles.bottomBtn}
+            action={logIn}
+            enabled={this.state.isValidForm}
+          >
             <Text style={styles.bottomBtnText}>
               {languageManager.doTranslate(this, "LOGIN_BTN_TEXT")}
             </Text>
-          </Button>
+          </ApiButton>
         </Container>
       </KeyboardAwareScrollView>
     );
