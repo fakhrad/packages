@@ -1,8 +1,8 @@
 import React from "react";
-import { Alert, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { languageManager, stateManager } from "@app-sdk/services";
+import { languageManager, stateManager, navManager } from "@app-sdk/services";
 import { logIn } from "@app-sdk/authentication-api";
 
 import {
@@ -12,15 +12,16 @@ import {
   PhoneNumberInput,
   ApiButton
 } from "@app-sdk/components"; // public components
-import styles from "./style";
+import styles from "./styles";
 import translation from "./translation";
 
 export default class Login extends React.Component {
   constructor(props) {
     super(props);
     languageManager.addToTranslation(this, translation);
-    this.state = stateManager.registerFormState(this);
+    this.state = stateManager.instance.registerFormState(this);
   }
+
   render() {
     return (
       <KeyboardAwareScrollView style={styles.scrollKeyboardView}>
@@ -42,11 +43,15 @@ export default class Login extends React.Component {
             bind="phoneNumber"
             isRequired={true}
           />
-
           <ApiButton
             style={styles.bottomBtn}
             action={logIn}
-            enabled={this.state.isValidForm}
+            onOk={() =>
+              navManager.openScreen(this.props.config.loginSuccessPage)
+            }
+            onCreated={() =>
+              navManager.openScreen(this.props.config.signUpSuccessPage)
+            }
           >
             <Text style={styles.bottomBtnText}>
               {languageManager.doTranslate(this, "LOGIN_BTN_TEXT")}

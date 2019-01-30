@@ -27,7 +27,7 @@
     "url": "https://github.com/saeedPadyab/packages/issues"
   },
   "dependencies": {
-    "@app-sdk/components": "^1.0.5",
+    "@app-sdk/components": "^1.0.7",
     "react-native-swiper": "^1.5.14"
   },
   "gitHead": "192ba8f8cad7133c062625cf7daff42291a12404"

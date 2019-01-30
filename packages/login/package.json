@@ -27,8 +27,10 @@
     "url": "https://github.com/saeedPadyab/packages/issues"
   },
   "dependencies": {
-    "@app-sdk/components": "^1.0.5",
-    "@app-sdk/services": "^1.0.8",
+    "@app-sdk/authentication-api": "^1.0.5",
+    "@app-sdk/components": "^1.0.7",
+    "@app-sdk/services": "^1.0.9",
+    "react-native-extended-stylesheet": "^0.11.1",
     "react-native-keyboard-aware-scroll-view": "^0.8.0"
   },
   "gitHead": "192ba8f8cad7133c062625cf7daff42291a12404"
