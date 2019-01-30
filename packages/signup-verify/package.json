@@ -6,6 +6,9 @@
   "homepage": "https://github.com/saeedPadyab/packages#readme",
   "license": "ISC",
   "main": "lib/signup-verify.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,5 +25,6 @@
   },
   "bugs": {
     "url": "https://github.com/saeedPadyab/packages/issues"
-  }
+  },
+  "gitHead": "c46e8b58e51e3ed718a8a1dc2911b8c24b93a13f"
 }
