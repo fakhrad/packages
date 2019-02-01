@@ -3,7 +3,6 @@ import { StatusBar } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { languageManager, stateManager, navManager } from "@app-sdk/services";
-import { logIn } from "@app-sdk/authentication-api";
 
 import {
   Text,
@@ -30,12 +29,12 @@ export default class Login extends React.Component {
           <Icon name="angle-up" style={styles.topIcon} />
           <Image source={require("./assets/m-v.png")} style={styles.topImage} />
           <Text style={styles.topText}>
-            {languageManager.doTranslate(this, "LOGIN_TITLE")}
+            {languageManager.translate(this, "LOGIN_TITLE")}
           </Text>
         </Container>
         <Container style={styles.bottom}>
           <PhoneNumberInput
-            placeholder={languageManager.doTranslate(
+            placeholder={languageManager.translate(
               this,
               "LOGIN_INPUT_PLACEHLODER"
             )}
@@ -45,16 +44,16 @@ export default class Login extends React.Component {
           />
           <ApiButton
             style={styles.bottomBtn}
-            action={logIn}
-            onOk={() =>
-              navManager.openScreen(this.props.config.loginSuccessPage)
-            }
-            onCreated={() =>
-              navManager.openScreen(this.props.config.signUpSuccessPage)
+            action={{ api: "authentication", func: "logIn" }}
+            onOk={res => {
+              navManager.openScreen(this.props.config.loginSuccessPage, res);
+            }}
+            onCreated={res =>
+              navManager.openScreen(this.props.config.signUpSuccessPage, res)
             }
           >
             <Text style={styles.bottomBtnText}>
-              {languageManager.doTranslate(this, "LOGIN_BTN_TEXT")}
+              {languageManager.translate(this, "LOGIN_BTN_TEXT")}
             </Text>
           </ApiButton>
         </Container>
