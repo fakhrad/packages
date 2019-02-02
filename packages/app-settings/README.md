@@ -1,11 +1,11 @@
-# `signup-verify`
+# `app-settings`
 
 > TODO: description
 
 ## Usage
 
 ```
-const signupVerify = require('signup-verify');
+const appSettings = require('app-settings');
 
 // TODO: DEMONSTRATE API
 ```

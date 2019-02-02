@@ -1,11 +1,11 @@
 {
-  "name": "@app-sdk/signup-verify",
+  "name": "@app-sdk/app-help",
   "version": "0.0.35",
   "description": "> TODO: description",
   "author": "saeedPadyab <padyabsaeed@gmail.com>",
   "homepage": "https://github.com/saeedPadyab/packages#readme",
   "license": "ISC",
-  "main": "lib/signup-verify.js",
+  "main": "lib/app-help.js",
   "publishConfig": {
     "access": "public"
   },
@@ -25,6 +25,5 @@
   },
   "bugs": {
     "url": "https://github.com/saeedPadyab/packages/issues"
-  },
-  "gitHead": "c46e8b58e51e3ed718a8a1dc2911b8c24b93a13f"
+  }
 }
