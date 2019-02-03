@@ -4,24 +4,25 @@ import {
   Header,
   Text,
   Container,
-  BackButton,
   Image,
   ScrollView
 } from "@app-sdk/components";
+import BackButton from "@app-sdk/advance-components/BackButton";
 import styles from "./styles";
 import translatation from "./translation";
 import { languageManager } from "@app-sdk/services";
 
 export default class ContactUS extends React.Component {
-  state = {
-    anim:
-      languageManager.getCurrentLayout() == "rtl"
-        ? "bounceInRight"
-        : "bounceInLeft"
-  };
   constructor(props) {
     super(props);
+    debugger;
     languageManager.addToTranslation(this, translatation);
+    this.state = {
+      anim:
+        languageManager.getCurrentLayout() == "rtl"
+          ? "bounceInRight"
+          : "bounceInLeft"
+    };
   }
 
   render() {

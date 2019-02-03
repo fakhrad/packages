@@ -1,11 +1,11 @@
 {
-  "name": "@app-sdk/tutorial",
+  "name": "@app-sdk/choose-city",
   "version": "0.0.35",
-  "description": "simple tutorial with image and title and description in center . also it has login and signup button",
+  "description": "> TODO: description",
   "author": "saeedPadyab <padyabsaeed@gmail.com>",
   "homepage": "https://github.com/saeedPadyab/packages#readme",
   "license": "ISC",
-  "main": "lib/tutorial.js",
+  "main": "lib/choose-city.js",
   "publishConfig": {
     "access": "public"
   },
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@app-sdk/components": "^1.0.8",
-    "react-native-swiper": "^1.5.14"
-  },
-  "gitHead": "c46e8b58e51e3ed718a8a1dc2911b8c24b93a13f"
+    "@app-sdk/services": "^1.0.10"
+  }
 }

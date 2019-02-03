@@ -22,10 +22,7 @@ export default class SideMenu extends React.Component {
     super(props);
     languageManager.addToTranslation(this, translation);
   }
-  navigate(page) {
-    navManager.closeSide();
-    navManager.openScreen(page);
-  }
+
   render() {
     return (
       <Container style={styles.sideMenu}>
@@ -34,7 +31,9 @@ export default class SideMenu extends React.Component {
             <Image
               source={{
                 uri:
-                  authManager.instance.currentUser.avatar ||
+                  (authManager.instance.currentUser
+                    ? authManager.instance.currentUser.avatar
+                    : "https://www.tm-town.com/assets/default_male600x600-79218392a28f78af249216e097aaf683.png") ||
                   "https://www.tm-town.com/assets/default_male600x600-79218392a28f78af249216e097aaf683.png"
               }}
               style={styles.userImage}
@@ -43,10 +42,14 @@ export default class SideMenu extends React.Component {
           </Container>
           <Container style={styles.userInfo}>
             <Text style={styles.userName}>
-              {authManager.instance.currentUser.name}
+              {authManager.instance.currentUser
+                ? authManager.instance.currentUser.name
+                : ""}
             </Text>
             <Text style={styles.phoneNumber}>
-              {authManager.instance.currentUser.phoneNumber}
+              {authManager.instance.currentUser
+                ? authManager.instance.currentUser.phoneNumber
+                : ""}
             </Text>
           </Container>
         </Container>
@@ -56,7 +59,10 @@ export default class SideMenu extends React.Component {
               <Button
                 key={item.link}
                 style={styles.navItem}
-                onPress={() => this.navigate(item.link)}
+                onPress={() => {
+                  navManager.closeSide(this);
+                  navManager.openScreen(item.link);
+                }}
               >
                 <Container style={styles.iconContainer}>
                   <Icon name={item.icon} style={styles.navItemIcon} />
