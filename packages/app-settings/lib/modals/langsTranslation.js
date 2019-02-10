@@ -1,0 +1,30 @@
+export default {
+  fa: {
+    SETTINGS_LANGS_MODAL_TITLE: "زبان ",
+    SETTINGS_LANGS_MODAL_DESC: "زبان های برنامه",
+    SETTINGS_LANGS_MODAL_ENGLISH: "English",
+    SETTINGS_LANGS_MODAL_ENGLISH_DESC: "United States",
+    SETTINGS_LANGS_MODAL_PERSIAN: "فارسی",
+    SETTINGS_LANGS_MODAL_PERSIAN_DESC: "جمهوری اسلامی ایران",
+    SETTINGS_SET_LANG_ALERT_TITLE: "اعمال زبان",
+    SETTINGS_SET_LANG_ALERT_DESC: "برنامه باید دوباره بارگذاری شود",
+    SETTINGS_SET_LANG_ALERT_BTN_OK: "بله",
+    SETTINGS_SET_LANG_ALERT_CANCEL: "خیر",
+    SETTINGS_LANGS_MODAL_BTN_CANCEL: "خروج",
+    SETTINGS_LANGS_MODAL_BTN_OK: "تغییر",
+  },
+  en: {
+    SETTINGS_LANGS_MODAL_TITLE: "Languags",
+    SETTINGS_LANGS_MODAL_DESC: "Your app languages",
+    SETTINGS_LANGS_MODAL_ENGLISH: "English",
+    SETTINGS_LANGS_MODAL_ENGLISH_DESC: "Unitate State ",
+    SETTINGS_LANGS_MODAL_PERSIAN: "Persian",
+    SETTINGS_LANGS_MODAL_PERSIAN_DESC: "Islamic Republic Of Iran",
+    SETTINGS_SET_LANG_ALERT_TITLE: "Set Language",
+    SETTINGS_SET_LANG_ALERT_DESC: "App should be restatred.",
+    SETTINGS_SET_LANG_ALERT_BTN_OK: "Yes",
+    SETTINGS_SET_LANG_ALERT_CANCEL: "No",
+    SETTINGS_LANGS_MODAL_BTN_CANCEL: "Cancel",
+    SETTINGS_LANGS_MODAL_BTN_OK:"Change",
+  }
+};

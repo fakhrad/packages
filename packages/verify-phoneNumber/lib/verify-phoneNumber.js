@@ -6,13 +6,20 @@ import styles from "./styles";
 import translation from "./translation";
 
 import { languageManager, stateManager, navManager } from "@app-sdk/services";
-import { Container, Input, Button, Text, ApiButton } from "@app-sdk/components"; 
+import {
+  Container,
+  Input,
+  Button,
+  Text,
+  ApiButton,
+  BaseComponent
+} from "@app-sdk/components";
 
-export default class LoginVerify extends React.Component {
+export default class LoginVerify extends BaseComponent {
   constructor(props) {
     super(props);
     languageManager.addToTranslation(this, translation);
-    stateManager.instance.registerFormState(this, {
+    stateManager.instance().registerFormState(this, {
       phoneNumber:
         props.params != undefined
           ? props.params.inputs
@@ -168,8 +175,10 @@ export default class LoginVerify extends React.Component {
                   : (parseInt(this.state.inputNum) + 1).toString()
             },
             () => {
-              this.setState({ ["input" + this.state.inputNum]: "" });
-              stateManager.instance.setValue("code", this.state.code);
+              this.setState({
+                ["input" + this.state.inputNum]: ""
+              });
+              stateManager.instance().setValue("code", this.state.code);
             }
           );
         }
@@ -178,19 +187,21 @@ export default class LoginVerify extends React.Component {
         break;
     }
     if (num != "remove") {
-      this.setState(
-        (prevState, props) => ({
-          code: prevState.code + value,
-          ["input" + prevState.inputNum]: value,
-          inputNum:
-            languageManager.getCurrentLayout() == "ltr"
-              ? (parseInt(prevState.inputNum) + 1).toString()
-              : (parseInt(prevState.inputNum) - 1).toString()
-        }),
-        () => {
-          stateManager.instance.setValue("code", this.state.code);
-        }
-      );
+      if (this.state.code.length < 4) {
+        this.setState(
+          (prevState, props) => ({
+            code: prevState.code + value,
+            ["input" + prevState.inputNum]: value,
+            inputNum:
+              languageManager.getCurrentLayout() == "ltr"
+                ? (parseInt(prevState.inputNum) + 1).toString()
+                : (parseInt(prevState.inputNum) - 1).toString()
+          }),
+          () => {
+            stateManager.instance().setValue("code", this.state.code);
+          }
+        );
+      }
     }
   };
   render() {
@@ -320,9 +331,23 @@ export default class LoginVerify extends React.Component {
           </Button>
           <ApiButton
             style={[styles.numKeyBtn]}
-            action={{ api: "authentication", func: "verifyCode" }}
+            action={{
+              api: "authentication",
+              func: "verifyCode"
+            }}
             onOk={res => {
               navManager.openScreen(this.props.config.verifySuccessPage, res);
+            }}
+            onConnectionError={() => {
+              this.notifyError(
+                languageManager.translate(this, "CONNECTION_ERROR")
+              );
+            }}
+            onServerError={() => {
+              this.notifyError(languageManager.translate(this, "ERROR_INTERNAL_SERVER"));
+            }}
+            onBadRequest={() => {
+              this.notifyWarning(languageManager.translate(this, "ERROR_BAD_REQUEST"));
             }}
           >
             <Icon name="check" style={styles.numKeyBtnIcon} />

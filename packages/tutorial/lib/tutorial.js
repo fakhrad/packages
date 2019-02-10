@@ -35,13 +35,13 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_FIRST_SECTION_TITLE"
               )}
             </Text>
             <Text style={styles.slidesDescription}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_FIRST_SECTION_DESCRIPTION"
               )}
@@ -56,13 +56,13 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_SECOND_SECTION_TITLE"
               )}
             </Text>
             <Text style={styles.slidesDescription}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_SECOND_SECTION_DESCRIPTION"
               )}
@@ -77,13 +77,13 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_THIRD_SECTION_TITLE"
               )}
             </Text>
             <Text style={styles.slidesDescription}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_THIRD_SECTION_DESCRIPTION"
               )}
@@ -96,13 +96,13 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_FOURTH_SECTION_TITLE"
               )}
             </Text>
             <Text style={styles.slidesDescription}>
-              {languageManager.doTranslate(
+              {languageManager.translate(
                 this,
                 "TUTORIAL_FOURTH_SECTION_DESCRIPTION"
               )}
@@ -115,7 +115,7 @@ export default class Tutorial extends React.Component {
             source={this.props.config.loginPage}
           >
             <Text style={styles.actionsBtnText}>
-              {languageManager.doTranslate(this, "TUTORIAL_BTN_LOGIN")}
+              {languageManager.translate(this, "TUTORIAL_BTN_LOGIN")}
             </Text>
           </NavigateButton>
 
@@ -124,7 +124,7 @@ export default class Tutorial extends React.Component {
             source={this.props.config.signUpPage}
           >
             <Text style={styles.actionsBtnText}>
-              {languageManager.doTranslate(this, "TUTORIAL_BTN_SIGNUP")}
+              {languageManager.translate(this, "TUTORIAL_BTN_SIGNUP")}
             </Text>
           </NavigateButton>
         </Container>

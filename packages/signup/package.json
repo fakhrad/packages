@@ -27,8 +27,8 @@
     "url": "https://github.com/saeedPadyab/packages/issues"
   },
   "dependencies": {
-    "@app-sdk/components": "^1.0.8",
-    "@app-sdk/services": "^1.0.10",
+    "@app-sdk/components": "^1.0.9",
+    "@app-sdk/services": "^1.0.11",
     "react-native-extended-stylesheet": "^0.11.1",
     "react-native-keyboard-aware-scroll-view": "^0.8.0"
   },

@@ -9,16 +9,18 @@ import {
   Container,
   Image,
   PhoneNumberInput,
-  ApiButton
+  ApiButton,
+  BaseComponent
 } from "@app-sdk/components"; // public components
 import styles from "./styles";
 import translation from "./translation";
+import BackButton from "@app-sdk/advance-components/BackButton";
 
-export default class Login extends React.Component {
+export default class Login extends BaseComponent {
   constructor(props) {
     super(props);
     languageManager.addToTranslation(this, translation);
-    this.state = stateManager.instance.registerFormState(this);
+    this.state = stateManager.instance().registerFormState(this);
   }
 
   render() {
@@ -26,6 +28,7 @@ export default class Login extends React.Component {
       <KeyboardAwareScrollView style={styles.scrollKeyboardView}>
         <StatusBar hidden />
         <Container style={styles.top}>
+          <BackButton />
           <Icon name="angle-up" style={styles.topIcon} />
           <Image source={require("./assets/m-v.png")} style={styles.topImage} />
           <Text style={styles.topText}>
@@ -44,13 +47,24 @@ export default class Login extends React.Component {
           />
           <ApiButton
             style={styles.bottomBtn}
-            action={{ api: "authentication", func: "signUp" }}
-            onOk={() =>
-              navManager.openScreen(this.props.config.loginSuccessPage)
+            action={{
+              api: "authentication",
+              func: "signUp"
+            }}
+            onOk={res =>
+              navManager.openScreen(this.props.config.loginSuccessPage, res)
             }
-            onCreated={() =>
-              navManager.openScreen(this.props.config.signUpSuccessPage)
+            onCreated={res =>
+              navManager.openScreen(this.props.config.signUpSuccessPage, res)
             }
+            onConnectionError={() => {
+              this.notifyError(
+                languageManager.translate(this, "CONNECTION_ERROR")
+              );
+            }}
+            onServerError={() => {
+              this.notifyError(languageManager.translate(this, "ERROR_500"));
+            }}
           >
             <Text style={styles.bottomBtnText}>
               {languageManager.translate(this, "SIGNUP_BTN_TEXT")}

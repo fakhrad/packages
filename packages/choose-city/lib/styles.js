@@ -4,81 +4,82 @@ import EStyleSheet from "react-native-extended-stylesheet";
 const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 
 export default EStyleSheet.create({
-    modalContainer: {
-        // height: (deviceHeight * 90) / 100,
-        // margin: "5%",
-        flex: 1,
-        // marginVertical: (deviceHeight * 5) / 100,
-        backgroundColor: "$color2",
-        justifyContent: "flex-start",
-        borderRadius: 5,
-        zIndex: 100
-    },
-    modal_header: {
-        borderTopLeftRadius: 5,
-        borderTopRightRadius: 5,
-        flexDirection: "row",
-        backgroundColor: "$color1",
-        elevation: 10
-    },
-    modalClose: {
-        backgroundColor: "transparent",
-        paddingLeft: 20,
-        paddingRight: 20
-    },
-    modalCloseIcon: {
-        fontSize: "$fontSize2",
-        color: "$color2"
-    },
-    modal_header_iconContainer: {
-        width: "20%",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "transparent"
-    },
-    modal_header_iconContainer_icon: {
-        fontSize: "$fontSize4",
-        color: "$color2"
-    },
-    modal_header_iconContainer_input: {
-        fontSize: "$fontSize6",
-        marginRight: 10
-    },
-    modal_header_inputContainer: {
-        flex: 1,
-        backgroundColor: "transparent"
-    },
-    modal_header_inputContainer_input: {
-        fontSize: "$fontSize4",
-        marginRight: 10,
-        textAlign: "left",
-        color: "$color2"
-    },
-    flatListContainer: {
-        backgroundColor: "$color2"
-    },
-    cityItemContainer: {
-        backgroundColor: "transparent"
-    },
-    cityItem: {
-        width: "100%",
-        flexDirection: "row",
-        paddingRight: 15,
-        paddingLeft: 15,
-        alignItems: "center",
-        borderBottomColor: "$color3",
-        borderBottomWidth: 1
-    },
-    cityItemIcon: {
-        marginRight: 20,
-        width: (deviceWidth * 10) / 100,
-        height: (deviceWidth * 10) / 100
-    },
-    cityItemText: {
-        marginTop: "5%",
-        marginBottom: "5%",
-        fontWeight: "bold",
-        fontSize: "$fontSize5",
-        fontFamily: "$fontFamily1"
-    }
+  modalContainer: {
+    // height: (deviceHeight * 90) / 100,
+    // margin: "5%",
+    flex: 1,
+    // marginVertical: (deviceHeight * 5) / 100,
+    backgroundColor: "$color2",
+    justifyContent: "flex-start",
+    zIndex: 100
+  },
+  modal_header: {
+    flexDirection: "row",
+    backgroundColor: "$color1",
+    elevation: 10
+  },
+  modalClose: {
+    backgroundColor: "transparent",
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  modalCloseIcon: {
+    fontSize: "$fontSize1",
+    color: "$color2"
+  },
+  modal_header_iconContainer: {
+    width: "20%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "transparent"
+  },
+  changeCityBtn: {
+    alignSelf: "center",
+    marginHorizontal: 10,
+    backgroundColor: "transparent"
+  },
+  changeCityBtnIcon: {
+    fontSize: "$fontSize1",
+    color: "$color2"
+  },
+  modal_header_iconContainer_input: {
+    fontSize: "$fontSize1",
+    backgroundColor: "green"
+  },
+  modal_header_inputContainer: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
+  modal_header_inputContainer_input: {
+    fontSize: "$fontSize4",
+    marginRight: 10,
+    textAlign: "left",
+    color: "$color2"
+  },
+  flatListContainer: {
+    backgroundColor: "$color2"
+  },
+  cityItemContainer: {
+    backgroundColor: "transparent"
+  },
+  cityItem: {
+    width: "100%",
+    flexDirection: "row",
+    paddingRight: 15,
+    paddingLeft: 15,
+    alignItems: "center",
+    borderBottomColor: "$color3",
+    borderBottomWidth: 1
+  },
+  cityItemIcon: {
+    fontSize: "$fontSize1",
+    marginRight: 10
+  },
+  cityItemText: {
+    marginTop: "5%",
+    marginBottom: "5%",
+    fontWeight: "bold",
+    fontSize: "$fontSize5",
+    fontFamily: "$fontFamily1"
+  }
 });

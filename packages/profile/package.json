@@ -25,5 +25,10 @@
   },
   "bugs": {
     "url": "https://github.com/saeedPadyab/packages/issues"
+  },
+  "dependencies": {
+    "@app-sdk/advance-components": "^1.0.1",
+    "@app-sdk/components": "^1.0.9",
+    "@app-sdk/services": "^1.0.11"
   }
 }

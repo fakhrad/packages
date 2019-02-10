@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import {
   Button,
@@ -7,7 +7,9 @@ import {
   Text,
   Image,
   Input,
-  FlatList
+  FlatList,
+  Spinner,
+  BaseComponent
 } from "@app-sdk/components";
 import styles from "./styles";
 import translation from "./translation";
@@ -15,18 +17,26 @@ import {
   languageManager,
   apiManager,
   themeManager,
-  navManager
+  navManager,
+  authManager,
+  stateManager
 } from "@app-sdk/services";
 
-export default class ChooseCity extends React.Component {
+export default class ChooseCity extends BaseComponent {
   constructor(props) {
     super(props);
     languageManager.addToTranslation(this, translation);
+
     this.state = {
       spinner: false,
-      selectedCity: this.props.params,
+      selectedCity: this.store.userInfo
+        ? this.store.userInfo.city
+          ? this.store.userInfo.city
+          : {}
+        : {},
       isCitySelected: false,
-      refreshing: false
+      refreshing: false,
+      btnSpinner: false
     };
   }
   componentDidMount() {
@@ -34,17 +44,25 @@ export default class ChooseCity extends React.Component {
   }
   getAllCities() {
     const getCities = apiManager.instance.get("authentication", "getCities");
-    getCities().then(res => {
-      if (res.status == 200) {
-        res.json().then(cities => {
+    if (getCities) {
+      getCities()
+        .onOk(res => {
           this.setState({
-            flatListData: cities,
+            flatListData: res,
             refreshing: false
           });
-          this.arrayholder = cities;
-        });
-      }
-    });
+          this.arrayholder = res;
+        })
+        .onServerError(() => {
+          this.notifyError(
+            languageManager.translate(this, "ERROR_INTERNAL_SERVER")
+          );
+        })
+        .onConnectionError(() => {
+          this.notifyError(languageManager.translate(this, "CONNECTION_ERROR"));
+        })
+        .call();
+    }
   }
   // filtering cities
   searchFilter = text => {
@@ -54,7 +72,64 @@ export default class ChooseCity extends React.Component {
     this.setState({ flatListData: newData });
   };
   chooseCity = cityItem => {
-    navManager.closeModal(this.props.callback, cityItem);
+    this.setState(prevState => ({
+      ...prevState,
+      selectedCity: cityItem,
+      isCitySelected: true
+    }));
+  };
+  changeUserCity = async () => {
+    if (this.state.isCitySelected) {
+      const changeCity = apiManager.instance.get(
+        "authentication",
+        "changeCity"
+      );
+      if (changeCity) {
+        this.setState(prevState => ({
+          ...prevState,
+          btnSpinner: true
+        }));
+        changeCity()
+          .onOk(result => {
+            debugger;
+            navManager.closeScreen(
+              this.props.callback,
+              this.state.selectedCity
+            );
+          })
+          .notFound(() => {
+            this.setState(prevState => ({
+              ...prevState,
+              btnSpinner: false
+            }));
+          })
+          .onServerError(() => {
+            this.setState(prevState => ({
+              ...prevState,
+              btnSpinner: false
+            }));
+            this.notifyError(
+              languageManager.translate(this, "ERROR_INTERNAL_SERVER")
+            );
+          })
+          .onBadRequest(() => {
+            this.setState(prevState => ({
+              ...prevState,
+              btnSpinner: false
+            }));
+          })
+          .onConnectionError(() => {
+            this.setState(prevState => ({
+              ...prevState,
+              btnSpinner: false
+            }));
+            this.notifyError(
+              languageManager.translate(this, "CONNECTION_ERROR")
+            );
+          })
+          .call(this.state.selectedCity.cityCode);
+      }
+    }
   };
   handleRefresh() {
     this.setState({ refreshing: true, flatListData: [] }, () => {
@@ -62,7 +137,7 @@ export default class ChooseCity extends React.Component {
     });
   }
   toggleModal = () => {
-    navManager.closeModal();
+    navManager.closeScreen();
   };
   // render each item of cities
   _renderItem = ({ item, index }) => (
@@ -75,16 +150,13 @@ export default class ChooseCity extends React.Component {
           {
             backgroundColor:
               this.state.selectedCity.cityCode == item.cityCode
-                ? "whitesmoke"
-                : "white"
+                ? themeManager.getAppTheme().$color3
+                : themeManager.getAppTheme().$color2
           },
           styles.cityItem
         ]}
       >
-        {/* <Image
-          source={require("./../../authentication/assets/images/city.png")}
-          style={styles.cityItemIcon}
-        /> */}
+        <Icon name="opacity" style={styles.cityItemIcon} />
         <Text style={styles.cityItemText}>
           {item.name[languageManager.getCurrentLanguage().name]}
         </Text>
@@ -93,15 +165,17 @@ export default class ChooseCity extends React.Component {
   );
 
   render() {
+    const backIconName =
+      languageManager.getCurrentLayout() == "rtl"
+        ? "arrow-right"
+        : "arrow-left";
     return (
       <Container style={styles.modalContainer}>
         <Container style={styles.modal_header}>
           <Container style={styles.modal_header_iconContainer}>
-            <Icon
-              name="search"
-              size={25}
-              style={styles.modal_header_iconContainer_icon}
-            />
+            <Button onPress={this.toggleModal} style={styles.modalClose}>
+              <Icon name={backIconName} style={styles.modalCloseIcon} />
+            </Button>
           </Container>
           <Container style={styles.modal_header_inputContainer}>
             <Input
@@ -114,8 +188,15 @@ export default class ChooseCity extends React.Component {
               onChangeText={text => this.searchFilter(text)}
             />
           </Container>
-          <Button onPress={this.toggleModal} style={styles.modalClose}>
-            <Icon name="close" style={styles.modalCloseIcon} />
+          <Button onPress={this.changeUserCity} style={styles.changeCityBtn}>
+            <Spinner size="small" show={this.state.btnSpinner} />
+            <Icon
+              name="check"
+              style={[
+                styles.changeCityBtnIcon,
+                { display: this.state.btnSpinner ? "none" : "flex" }
+              ]}
+            />
           </Button>
         </Container>
         <FlatList

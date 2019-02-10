@@ -6,7 +6,8 @@ import {
   Button,
   Text,
   Image,
-  ScrollView
+  ScrollView,
+  BaseComponent
 } from "@app-sdk/components";
 import {
   languageManager,
@@ -17,7 +18,7 @@ import {
 import styles from "./styles";
 import translation from "./translation";
 
-export default class SideMenu extends React.Component {
+export default class SideMenu extends BaseComponent {
   constructor(props) {
     super(props);
     languageManager.addToTranslation(this, translation);
@@ -57,11 +58,12 @@ export default class SideMenu extends React.Component {
           {this.props.config.items.map(item => {
             return (
               <Button
-                key={item.link}
+                key={item.name}
                 style={styles.navItem}
                 onPress={() => {
                   navManager.closeSide(this);
-                  navManager.openScreen(item.link);
+                  if (item.action) item.action();
+                  else navManager.openScreen(item.link);
                 }}
               >
                 <Container style={styles.iconContainer}>

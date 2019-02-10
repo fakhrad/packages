@@ -9,23 +9,25 @@ import {
   Container,
   Image,
   PhoneNumberInput,
-  ApiButton
+  ApiButton,
+  BaseComponent
 } from "@app-sdk/components"; // public components
 import styles from "./styles";
 import translation from "./translation";
+import BackButton from "@app-sdk/advance-components/BackButton";
 
-export default class Login extends React.Component {
+export default class Login extends BaseComponent {
   constructor(props) {
     super(props);
     languageManager.addToTranslation(this, translation);
-    this.state = stateManager.instance.registerFormState(this);
+    stateManager.instance().registerFormState(this);
   }
-
   render() {
     return (
       <KeyboardAwareScrollView style={styles.scrollKeyboardView}>
         <StatusBar hidden />
         <Container style={styles.top}>
+          <BackButton />
           <Icon name="angle-up" style={styles.topIcon} />
           <Image source={require("./assets/m-v.png")} style={styles.topImage} />
           <Text style={styles.topText}>
@@ -51,6 +53,14 @@ export default class Login extends React.Component {
             onCreated={res =>
               navManager.openScreen(this.props.config.signUpSuccessPage, res)
             }
+            onConnectionError={() => {
+              this.notifyError(
+                languageManager.translate(this, "CONNECTION_ERROR")
+              );
+            }}
+            onServerError={() => {
+              this.notifyError(languageManager.translate(this, "ERROR_500"));
+            }}
           >
             <Text style={styles.bottomBtnText}>
               {languageManager.translate(this, "LOGIN_BTN_TEXT")}

@@ -5,17 +5,17 @@ import {
   Text,
   Container,
   Image,
-  ScrollView
+  ScrollView,
+  BaseComponent
 } from "@app-sdk/components";
 import BackButton from "@app-sdk/advance-components/BackButton";
 import styles from "./styles";
 import translatation from "./translation";
 import { languageManager } from "@app-sdk/services";
 
-export default class ContactUS extends React.Component {
+export default class ContactUS extends BaseComponent {
   constructor(props) {
     super(props);
-    debugger;
     languageManager.addToTranslation(this, translatation);
     this.state = {
       anim:
@@ -32,7 +32,7 @@ export default class ContactUS extends React.Component {
         {/* header */}
         <Header style={styles.header}>
           <Container style={styles.headerActions}>
-            <BackButton screen />
+            <BackButton />
             <Text style={styles.headerText}>
               {languageManager.translate(this, "CONTACT_US_HEADER_TITLE")}
             </Text>

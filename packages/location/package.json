@@ -1,0 +1,34 @@
+{
+  "name": "@app-sdk/location",
+  "version": "0.0.36",
+  "description": "> TODO: description",
+  "author": "saeedPadyab <padyabsaeed@gmail.com>",
+  "homepage": "https://github.com/saeedPadyab/packages#readme",
+  "license": "ISC",
+  "main": "lib/location.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saeedPadyab/packages.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/saeedPadyab/packages/issues"
+  },
+  "dependencies": {
+    "@app-sdk/advance-components": "^1.0.1",
+    "@app-sdk/components": "^1.0.9",
+    "@app-sdk/services": "^1.0.11"
+  }
+}

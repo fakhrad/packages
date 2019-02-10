@@ -28,7 +28,8 @@
   },
   "gitHead": "c46e8b58e51e3ed718a8a1dc2911b8c24b93a13f",
   "dependencies": {
-    "@app-sdk/components": "^1.0.8",
-    "@app-sdk/services": "^1.0.10"
+    "@app-sdk/advance-components": "^1.0.1",
+    "@app-sdk/components": "^1.0.9",
+    "@app-sdk/services": "^1.0.11"
   }
 }
