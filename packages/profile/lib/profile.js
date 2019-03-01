@@ -38,7 +38,6 @@ export default class Profile extends BaseComponent {
     }
   }
   onChangeUserAvatar(image) {
-    debugger;
     const changeAvatar = apiManager.instance.get(
       "authentication",
       "changeAvatar"
@@ -213,6 +212,7 @@ export default class Profile extends BaseComponent {
               }}
             />
           </Container>
+          
           <Button style={styles.myLocation} onPress={this.chooseLocation}>
             <Text style={styles.myLocationText}>
               {languageManager.translate(this, "PROFILE_TAB_ABOUT_MY_LOCATION")}

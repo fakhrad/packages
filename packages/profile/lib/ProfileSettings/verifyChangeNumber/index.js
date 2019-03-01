@@ -41,7 +41,7 @@ export default class VeirfyChangeNumber extends BaseComponent {
     }, 1000);
   }
   onOk = result => {
-    navManager.closeWizard("Number Changed Successfully.")
+    navManager.closeWizard();
   };
   getKeyNumber(num) {
     var layout = languageManager.getCurrentLayout();

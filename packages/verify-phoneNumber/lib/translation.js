@@ -15,9 +15,10 @@ export default {
     ACTIVATION_RESEND: "Where is my code? Resend",
     ERROR_INTERNAL_SERVER:
       "Internal server error. Please contact the adminstrator",
-    ERROR_400: "Please inter the correct code",
+    ERROR_BAD_REQUEST: "Please inter the correct code",
     CONNECTION_ERROR:
-      "To send the code you have to fix your internet connection"
+      "To send the code you have to fix your internet connection",
+    REQUEST_CODE_BAD_REQUEST: "Bad Request.",
   },
   fa: {
     NUMBER_1: "۱",
@@ -36,6 +37,7 @@ export default {
     ERROR_INTERNAL_SERVER: "خطای سیستمی .لطفا با ادمین تماس بگیرید",
     ERROR_BAD_REQUEST: "کد وارد شده اشتباه می باشد.",
     ERROR_404: "Not Found",
-    CONNECTION_ERROR: "برای ارسال کد ارتباط اینترنت خود را برقرار کنید"
+    CONNECTION_ERROR: "برای ارسال کد ارتباط اینترنت خود را برقرار کنید",
+    REQUEST_CODE_BAD_REQUEST:"ارسال با خطا",
   }
 };

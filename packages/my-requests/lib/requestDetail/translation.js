@@ -1,0 +1,42 @@
+export default {
+  fa: {
+    REQUEST_DETAIL_HEADER_TITLE: "جزئیات درخواست",
+    CANCEL_BTN: "برگشت",
+    DESCRIPTION: "توضیحات",
+    cash: "نقدی",
+    credit: "اعتباری",
+    check: "چک",
+    PRODUCT_NAME: "نام کالا",
+    QOUTES: "پیشنهادات",
+    REQUEST_DETAIL: "جزئیات درخواست",
+    REQUEST_DETAIL_WEIGHT: "وزن",
+    REQUEST_DETAIL_DATE: "تاریخ",
+    REQUEST_DETAIL_STATUS: "وضعیت",
+    REQUEST_DETAIL_QOUTES: "پیشنهادات",
+    REQUEST_DETAIL_PAYMENT: "پرداخت",
+    REQUEST_DETAIL_NOTE: "توضیحات",
+    QOUTE_INFO:"جزئیات پیشنهاد پذیرفته شده",
+    QOUTE_DATE: "تاریخ",
+    QOUTE_PRICE: "قیمت"
+  },
+  en: {
+    REQUEST_DETAIL_HEADER_TITLE: "Request Detail",
+    CANCEL_BTN: "Back",
+    DESCRIPTION: "Order Note",
+    cash: "Cash",
+    credit: "Credit",
+    check: "Check",
+    PRODUCT_NAME: "Product Name",
+    QOUTES: "Qoutes",
+    REQUEST_DETAIL: "Request Detail",
+    REQUEST_DETAIL_WEIGHT: "Weight",
+    REQUEST_DETAIL_DATE: "Date",
+    REQUEST_DETAIL_STATUS: "Status",
+    REQUEST_DETAIL_QOUTES: "Offers",
+    REQUEST_DETAIL_PAYMENT: "Payment",
+    REQUEST_DETAIL_NOTE: "Note",
+    QOUTE_INFO:"Accepted Qoute",
+    QOUTE_DATE: "Date",
+    QOUTE_PRICE:"Price"
+  }
+};

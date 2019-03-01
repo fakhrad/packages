@@ -91,7 +91,6 @@ export default class ChooseCity extends BaseComponent {
         }));
         changeCity()
           .onOk(result => {
-            debugger;
             navManager.closeScreen(
               this.props.callback,
               this.state.selectedCity
@@ -129,6 +128,8 @@ export default class ChooseCity extends BaseComponent {
           })
           .call(this.state.selectedCity.cityCode);
       }
+    } else {
+      navManager.closeScreen();
     }
   };
   handleRefresh() {
@@ -172,11 +173,12 @@ export default class ChooseCity extends BaseComponent {
     return (
       <Container style={styles.modalContainer}>
         <Container style={styles.modal_header}>
-          <Container style={styles.modal_header_iconContainer}>
-            <Button onPress={this.toggleModal} style={styles.modalClose}>
-              <Icon name={backIconName} style={styles.modalCloseIcon} />
-            </Button>
-          </Container>
+          <Button
+            style={styles.modal_header_iconContainer}
+            onPress={this.toggleModal}
+          >
+            <Icon name={backIconName} style={styles.modalCloseIcon} />
+          </Button>
           <Container style={styles.modal_header_inputContainer}>
             <Input
               placeholderTextColor={themeManager.getAppTheme().$color4}

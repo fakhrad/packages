@@ -17,7 +17,17 @@ export default class Home extends React.Component {
   openSideMenu() {
     navManager.openSide(this);
   }
-
+  newRequest = () => {
+    navManager.openScreen("NewRequest");
+  };
+  myRequests = () => {
+    navManager.openScreen("MyRequests");
+  };
+  openHelpSection = () => {
+    navManager.openScreen("Help");
+  };
+  showQouts = () => navManager.openScreen("Qoutes");
+  showOrders = () => navManager.openScreen("MyOrders");
   render() {
     const toggleNavIconName =
       languageManager.getCurrentLayout() == "rtl"
@@ -36,17 +46,20 @@ export default class Home extends React.Component {
                 <Icon name={toggleNavIconName} style={style.headerIcon} />
               </Container>
             </Button>
-            <Container style={style.headerCenter} />
             <Container style={style.headerRight}>
-              <Button style={style.headerBtn} animation="zoomIn">
+              <Button
+                style={style.headerBtn}
+                animation="zoomIn"
+                onPress={this.showQouts}
+              >
                 <Icon
                   name="bell"
                   style={[style.headerIcon, style.headerIconBell]}
                 />
               </Button>
-              <Button style={style.headerBtn}>
+              <Button style={style.headerBtn} onPress={this.openHelpSection}>
                 <Icon
-                  name="inbox"
+                  name="question-circle"
                   style={[style.headerIcon, style.headerIconInfo]}
                 />
               </Button>
@@ -77,7 +90,10 @@ export default class Home extends React.Component {
           </Container>
           <Container style={style.btnContainer}>
             <Container style={style.homeBtn} animation="slideInUp">
-              <Button style={{ backgroundColor: "transparent" }}>
+              <Button
+                style={{ backgroundColor: "transparent" }}
+                onPress={this.myRequests}
+              >
                 <Container style={style.homeBtnContainer}>
                   <Icon name="industry" style={style.homeBtnIcon} />
                   <Text style={style.homeBtnText}>
@@ -90,7 +106,10 @@ export default class Home extends React.Component {
               </Button>
             </Container>
             <Container style={style.homeBtn} animation="slideInUp" delay={20}>
-              <Button style={{ backgroundColor: "transparent" }}>
+              <Button
+                style={{ backgroundColor: "transparent" }}
+                onPress={this.newRequest}
+              >
                 <Container style={style.homeBtnContainer}>
                   <Icon name="cart-plus" style={style.homeBtnIcon} />
                   <Text style={style.homeBtnText}>
@@ -103,7 +122,10 @@ export default class Home extends React.Component {
               </Button>
             </Container>
             <Container style={style.homeBtn} animation="slideInUp" delay={40}>
-              <Button style={{ backgroundColor: "transparent" }}>
+              <Button
+                style={{ backgroundColor: "transparent" }}
+                onPress={this.showOrders}
+              >
                 <Container style={style.homeBtnContainer}>
                   <Icon name="archive" style={style.homeBtnIcon} />
                   <Text style={style.homeBtnText}>

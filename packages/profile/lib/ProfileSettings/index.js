@@ -28,7 +28,6 @@ import ChangeNumber from "./changeNumber";
 export default class ProfileSettings extends BaseComponent {
   constructor(props) {
     super(props);
-    navManager.registerScreen(undefined, "ChangeNumber", ChangeNumber);
     languageManager.addToTranslation(this, translation);
     stateManager.instance().registerFormState(this, {
       first_name: authManager.instance.currentUser.first_name,
@@ -36,10 +35,14 @@ export default class ProfileSettings extends BaseComponent {
       address: authManager.instance.currentUser.address
     });
   }
-
+  componentDidMount() {
+    navManager.registerScreen(undefined, "ChangeNumber", ChangeNumber);
+  }
   showChangeNumberPage = () => {
     navManager.startWizard("ChangeNumber", undefined, result => {
-      this.notifySuccess(languageManager.translate(this,"PROFILE_CHANGE_NUMBER_SUCCESS"));
+      this.notifySuccess(
+        languageManager.translate(this, "PROFILE_CHANGE_NUMBER_SUCCESS")
+      );
     });
   };
   render() {

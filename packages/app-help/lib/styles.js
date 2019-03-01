@@ -51,7 +51,7 @@ export default EStyleSheet.create({
 
   headerContentDesc: {
     fontSize: "$fontSize6 * 1.2",
-    color: "$color4"
+    color: "$color2"
   },
   headerContentImg: {
     marginTop: 20

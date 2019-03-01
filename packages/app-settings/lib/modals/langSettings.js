@@ -71,7 +71,7 @@ export default class LangsSettings extends BaseComponent {
     const unSelectedRadioColor = themeManager.getAppTheme().$color2;
     const selectedRadioColor = themeManager.getAppTheme().$color5;
     return (
-      <Container style={styles.langsContainer}>
+      <Container style={styles.langsContainer} animation="zoomIn" duration={200}>
         <ScrollView contentContainerStyle={styles.langScrollContent}>
           {this.state.langs.map(lang => {
             return (
@@ -94,12 +94,7 @@ export default class LangsSettings extends BaseComponent {
                 </Container>
                 <Container style={styles.center}>
                   <Text style={styles.themeTitle}>{lang.title}</Text>
-                  <Text style={styles.themeDesc}>
-                    {languageManager.translate(
-                      this,
-                      "SETTINGS_LANGS_MODAL_PERSIAN_DESC"
-                    )}
-                  </Text>
+                  <Text style={styles.themeDesc}>{lang.description}</Text>
                 </Container>
                 <Container style={styles.left}>
                   <Container

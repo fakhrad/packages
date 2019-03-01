@@ -15,7 +15,7 @@ export default EStyleSheet.create({
   bottom: {
     height: (deviceHeight * 45) / 100,
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "center"
   },
   topIcon: {
     fontWeight: "normal",
@@ -35,7 +35,8 @@ export default EStyleSheet.create({
     borderBottomColor: "$color4",
     borderBottomWidth: 1,
     marginHorizontal: "10%",
-    fontSize: "$fontSize2"
+    fontSize: "$fontSize2",
+    marginBottom: "12%",
   },
   bottomBtn: {
     borderRadius: 30,
@@ -44,7 +45,8 @@ export default EStyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    padding: 0
+    padding: 0,
+    marginTop: "5%",
   },
   bottomBtnText: {
     margin: 0,
@@ -55,5 +57,13 @@ export default EStyleSheet.create({
   spinner: {
     position: "absolute",
     right: "5%"
+  },
+  signUpBtn: {
+    backgroundColor: "transparent",
+    paddingVertical: 10
+  },
+  signUpBtnText: {
+    color: "$color5",
+    fontSize: "$fontSize5",
   }
 });

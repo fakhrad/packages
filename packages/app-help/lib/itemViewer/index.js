@@ -14,8 +14,7 @@ export default class HelpItemViewer extends BaseComponent {
   render() {
     return (
       <Container style={styles.container}>
-        <BackButton />
-        <StatusBar hidden />
+        <BackButton style={styles.backButton} />
         <Swiper
           style={styles.swiper}
           showsButtons={false}

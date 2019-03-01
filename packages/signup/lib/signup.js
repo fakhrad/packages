@@ -10,11 +10,11 @@ import {
   Image,
   PhoneNumberInput,
   ApiButton,
-  BaseComponent
+  BaseComponent,
+  Button
 } from "@app-sdk/components"; // public components
 import styles from "./styles";
 import translation from "./translation";
-import BackButton from "@app-sdk/advance-components/BackButton";
 
 export default class Login extends BaseComponent {
   constructor(props) {
@@ -22,13 +22,16 @@ export default class Login extends BaseComponent {
     languageManager.addToTranslation(this, translation);
     this.state = stateManager.instance().registerFormState(this);
   }
-
+  openLogin = () => {
+    if (this.props.config && this.props.config.loginPage.length > 0) {
+      navManager.openScreen(this.props.config.loginPage);
+    }
+  };
   render() {
     return (
       <KeyboardAwareScrollView style={styles.scrollKeyboardView}>
         <StatusBar hidden />
         <Container style={styles.top}>
-          <BackButton />
           <Icon name="angle-up" style={styles.topIcon} />
           <Image source={require("./assets/m-v.png")} style={styles.topImage} />
           <Text style={styles.topText}>
@@ -51,12 +54,27 @@ export default class Login extends BaseComponent {
               api: "authentication",
               func: "signUp"
             }}
-            onOk={res =>
-              navManager.openScreen(this.props.config.loginSuccessPage, res)
-            }
-            onCreated={res =>
-              navManager.openScreen(this.props.config.signUpSuccessPage, res)
-            }
+            onOk={res => {
+              if (
+                this.props.config &&
+                this.props.config.loginSuccessPage &&
+                this.props.config.loginSuccessPage.length
+              )
+                navManager.openScreen(this.props.config.loginSuccessPage, res);
+            }}
+            onBadRequest={() => {
+              this.notifyWarning(
+                languageManager.translate(this, "BAD_REQUEST_ERROR")
+              );
+            }}
+            onCreated={res => {
+              if (
+                this.props.config &&
+                this.props.config.signUpSuccessPage &&
+                this.props.config.signUpSuccessPage.length
+              )
+                navManager.openScreen(this.props.config.signUpSuccessPage, res);
+            }}
             onConnectionError={() => {
               this.notifyError(
                 languageManager.translate(this, "CONNECTION_ERROR")
@@ -70,6 +88,11 @@ export default class Login extends BaseComponent {
               {languageManager.translate(this, "SIGNUP_BTN_TEXT")}
             </Text>
           </ApiButton>
+          <Button style={styles.signUpBtn} onPress={this.openLogin}>
+            <Text style={styles.signUpBtnText}>
+              {languageManager.translate(this, "LOGIN_BTN_TEXT")}
+            </Text>
+          </Button>
         </Container>
       </KeyboardAwareScrollView>
     );

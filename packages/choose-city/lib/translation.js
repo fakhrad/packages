@@ -1,6 +1,6 @@
 export default {
   fa: {
-    CHOOSE_CITY_FILTER_PLACEHOLDER: "Search name of city",
+    CHOOSE_CITY_FILTER_PLACEHOLDER: "نام شهر را جستجو کنید",
     ERROR_INTERNAL_SERVER: "خطای سیستمی .لطفا با ادمین تماس بگیرید",
     ERROR_BAD_REQUEST: "شهر مورد نظر را انتخاب کنید",
     CONNECTION_ERROR: " ارتباط اینترنت خود را برقرار کنید"

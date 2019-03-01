@@ -1,11 +1,15 @@
 import React from "react";
-import { Keyboard, Alert } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 import styles from "./styles";
 import translation from "./translation";
 
-import { languageManager, stateManager, navManager } from "@app-sdk/services";
+import {
+  languageManager,
+  stateManager,
+  navManager,
+  apiManager
+} from "@app-sdk/services";
 import {
   Container,
   Input,
@@ -35,7 +39,7 @@ export default class LoginVerify extends BaseComponent {
   }
   componentDidMount() {
     setTimeout(() => {
-      Alert.alert(
+      this.alert(
         "Activation code is: " + this.props.params.outputs.activation_code
       );
     }, 1000);
@@ -204,6 +208,29 @@ export default class LoginVerify extends BaseComponent {
       }
     }
   };
+  requestCode = () => {
+    const requestCode = apiManager.instance.get("authentication", "logIn");
+    if (requestCode) {
+      requestCode()
+        .onOk(res => {
+          this.alert("Activation code is: " + res.activation_code);
+        })
+        .onBadRequest(() =>
+          this.notifyError(
+            languageManager.translate(this, "REQUEST_CODE_BAD_REQUEST")
+          )
+        )
+        .onConnectionError(() =>
+          this.notifyError(languageManager.translate(this, "CONNECTION_ERROR"))
+        )
+        .onServerError(() =>
+          this.notifyError(
+            languageManager.translate(this, "ERROR_INTERNAL_SERVER")
+          )
+        )
+        .call({ phoneNumber: this.props.params.inputs.phoneNumber });
+    }
+  };
   render() {
     return (
       <Container style={styles.wrapper}>
@@ -245,7 +272,7 @@ export default class LoginVerify extends BaseComponent {
           />
         </Container>
 
-        <Button>
+        <Button onPress={this.requestCode}>
           <Text style={styles.sendCodeText}>
             {languageManager.translate(this, "ACTIVATION_RESEND")}
           </Text>
@@ -344,10 +371,14 @@ export default class LoginVerify extends BaseComponent {
               );
             }}
             onServerError={() => {
-              this.notifyError(languageManager.translate(this, "ERROR_INTERNAL_SERVER"));
+              this.notifyError(
+                languageManager.translate(this, "ERROR_INTERNAL_SERVER")
+              );
             }}
             onBadRequest={() => {
-              this.notifyWarning(languageManager.translate(this, "ERROR_BAD_REQUEST"));
+              this.notifyWarning(
+                languageManager.translate(this, "ERROR_BAD_REQUEST")
+              );
             }}
           >
             <Icon name="check" style={styles.numKeyBtnIcon} />

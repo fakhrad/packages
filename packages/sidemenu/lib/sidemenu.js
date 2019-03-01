@@ -23,12 +23,20 @@ export default class SideMenu extends BaseComponent {
     super(props);
     languageManager.addToTranslation(this, translation);
   }
-
+  showProfile = () => {
+    if (
+      this.props.config.onProfilePressedPage &&
+      this.props.config.onProfilePressedPage.length > 0
+    ) {
+      navManager.closeSide(this);
+      navManager.openScreen(this.props.config.onProfilePressedPage);
+    }
+  };
   render() {
     return (
       <Container style={styles.sideMenu}>
         <Container style={styles.header}>
-          <Container style={styles.imageContainer}>
+          <Button style={styles.imageContainer} onPress={this.showProfile}>
             <Image
               source={{
                 uri:
@@ -40,7 +48,7 @@ export default class SideMenu extends BaseComponent {
               style={styles.userImage}
               resizeMode="cover"
             />
-          </Container>
+          </Button>
           <Container style={styles.userInfo}>
             <Text style={styles.userName}>
               {authManager.instance.currentUser

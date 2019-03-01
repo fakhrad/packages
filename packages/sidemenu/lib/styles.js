@@ -24,7 +24,8 @@ export default EStyleSheet.create({
     borderColor: "$color5",
     borderRadius: 100,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor:"transparent"
   },
   userImage: {
     width: (imageCircle * 90) / 100,

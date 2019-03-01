@@ -1,4 +1,7 @@
 import EStyleSheet from "react-native-extended-stylesheet";
+import { Dimensions } from "react-native";
+const { width: deviceWidth, heigh: deviceHeight } = Dimensions.get("window");
+const headerBtnDimention = (deviceWidth * 12) / 100;
 
 export default EStyleSheet.create({
   header: {
@@ -18,25 +21,23 @@ export default EStyleSheet.create({
     backgroundColor: "$color1",
     borderBottomRightRadius: 200
   },
-  headerCenter: {
-    backgroundColor: "transparent",
-    flex: 1
-  },
   headerRight: {
     flexDirection: "row",
-    width: "20%",
+    flex: 1,
     height: "100%",
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    paddingRight: "3%"
   },
   headerBtn: {
-    marginRight: 20,
+    width: headerBtnDimention,
+    height: headerBtnDimention,
     backgroundColor: "transparent"
   },
   headerIcon: {
     color: "$color2",
-    fontSize: "$fontSize2"
+    fontSize: "$fontSize1"
   },
   headerIconBell: {
     color: "$color5"

@@ -5,10 +5,7 @@ const { width: deviceWidth, height: deviceHeight } = Dimensions.get("window");
 
 export default EStyleSheet.create({
   modalContainer: {
-    // height: (deviceHeight * 90) / 100,
-    // margin: "5%",
     flex: 1,
-    // marginVertical: (deviceHeight * 5) / 100,
     backgroundColor: "$color2",
     justifyContent: "flex-start",
     zIndex: 100
@@ -34,8 +31,8 @@ export default EStyleSheet.create({
     backgroundColor: "transparent"
   },
   changeCityBtn: {
+    width:"20%",
     alignSelf: "center",
-    marginHorizontal: 10,
     backgroundColor: "transparent"
   },
   changeCityBtnIcon: {
@@ -53,7 +50,6 @@ export default EStyleSheet.create({
   modal_header_inputContainer_input: {
     fontSize: "$fontSize4",
     marginRight: 10,
-    textAlign: "left",
     color: "$color2"
   },
   flatListContainer: {
@@ -79,7 +75,6 @@ export default EStyleSheet.create({
     marginTop: "5%",
     marginBottom: "5%",
     fontWeight: "bold",
-    fontSize: "$fontSize5",
-    fontFamily: "$fontFamily1"
+    fontSize: "$fontSize4"
   }
 });

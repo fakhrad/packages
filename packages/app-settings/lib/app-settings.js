@@ -94,12 +94,11 @@ export default class Settings extends BaseComponent {
         );
         if (deleteAccount) {
           deleteAccount()
-            .onOk(() => {
-              storageManager.removeItem("appTheme").then(() => {
-                storageManager.removeItem("appLanguage").then(() => {
-                  this.restart();
-                });
-              });
+            .onOk(async () => {
+              await storageManager.removeItem("appTheme");
+              await storageManager.removeItem("appLanguage");
+              await storageManager.removeItem("userInfo");
+              this.restart();
             })
             .onConnectionError(() => {
               this.notifyError(
@@ -116,6 +115,8 @@ export default class Settings extends BaseComponent {
       }
     );
   }
+  openThemeSettings = () => navManager.showInModal(ThemeModal);
+
   render() {
     return (
       <Container style={styles.wrapper}>
@@ -159,10 +160,7 @@ export default class Settings extends BaseComponent {
             </Container>
           </Container>
           {/* THEME  */}
-          <Button
-            style={styles.container}
-            onPress={() => navManager.showInModal(ThemeModal)}
-          >
+          <Button style={styles.container} onPress={this.openThemeSettings}>
             <Container style={styles.left}>
               <Text style={styles.title}>
                 {languageManager.translate(this, "SETTINGS_THEME_TITLE")}

@@ -1,5 +1,4 @@
 import React from "react";
-import { StatusBar } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { languageManager, stateManager, navManager } from "@app-sdk/services";
@@ -16,12 +15,10 @@ import {
 import styles from "./styles";
 import translation from "./translation";
 import VerifyChangeNumber from "./../verifyChangeNumber";
-import BackButton from "@app-sdk/advance-components/BackButton";
 
 export default class ChangeNumber extends BaseComponent {
   constructor(props) {
     super(props);
-    debugger;
     navManager.registerScreen(
       undefined,
       "VerifyChangeNumber",
@@ -36,7 +33,6 @@ export default class ChangeNumber extends BaseComponent {
     return (
       <KeyboardAwareScrollView style={styles.scrollKeyboardView}>
         <Container style={styles.top}>
-          <BackButton />
           <Icon name="angle-up" style={styles.topIcon} />
           <Image source={require("./assets/m-v.png")} style={styles.topImage} />
           <Text style={styles.topText}>
@@ -62,6 +58,14 @@ export default class ChangeNumber extends BaseComponent {
               {languageManager.translate(this, "LOGIN_BTN_TEXT")}
             </Text>
           </ApiButton>
+          <Button
+            style={styles.signUpBtn}
+            onPress={() => navManager.closeScreen()}
+          >
+            <Text style={styles.signUpBtnText}>
+              {languageManager.translate(this, "BACK_BTN_TEXT")}
+            </Text>
+          </Button>
         </Container>
       </KeyboardAwareScrollView>
     );

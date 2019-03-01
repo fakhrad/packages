@@ -35,10 +35,7 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.translate(
-                this,
-                "TUTORIAL_FIRST_SECTION_TITLE"
-              )}
+              {languageManager.translate(this, "TUTORIAL_FIRST_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
               {languageManager.translate(
@@ -56,10 +53,7 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.translate(
-                this,
-                "TUTORIAL_SECOND_SECTION_TITLE"
-              )}
+              {languageManager.translate(this, "TUTORIAL_SECOND_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
               {languageManager.translate(
@@ -77,10 +71,7 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.translate(
-                this,
-                "TUTORIAL_THIRD_SECTION_TITLE"
-              )}
+              {languageManager.translate(this, "TUTORIAL_THIRD_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
               {languageManager.translate(
@@ -96,10 +87,7 @@ export default class Tutorial extends React.Component {
               resizeMode="center"
             />
             <Text style={styles.slidesTitle}>
-              {languageManager.translate(
-                this,
-                "TUTORIAL_FOURTH_SECTION_TITLE"
-              )}
+              {languageManager.translate(this, "TUTORIAL_FOURTH_SECTION_TITLE")}
             </Text>
             <Text style={styles.slidesDescription}>
               {languageManager.translate(
@@ -112,7 +100,7 @@ export default class Tutorial extends React.Component {
         <Container style={styles.actionsContainer}>
           <NavigateButton
             style={styles.actionsBtn}
-            source={this.props.config.loginPage}
+            source={this.props.config ? this.props.config.loginPage : ""}
           >
             <Text style={styles.actionsBtnText}>
               {languageManager.translate(this, "TUTORIAL_BTN_LOGIN")}
@@ -121,7 +109,7 @@ export default class Tutorial extends React.Component {
 
           <NavigateButton
             style={styles.actionsBtn}
-            source={this.props.config.signUpPage}
+            source={this.props.config ? this.props.config.signUpPage : ""}
           >
             <Text style={styles.actionsBtnText}>
               {languageManager.translate(this, "TUTORIAL_BTN_SIGNUP")}

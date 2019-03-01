@@ -7,11 +7,17 @@ import {
   Text,
   Image,
   BaseComponent,
-  Spinner
+  Spinner,
+  StringInput
 } from "@app-sdk/components"; // public components
 import styles from "./styles";
 import translation from "./translation";
-import { languageManager, navManager, stateManager } from "@app-sdk/services";
+import {
+  languageManager,
+  navManager,
+  stateManager,
+  themeManager
+} from "@app-sdk/services";
 
 export default class SignUpChooseCity extends BaseComponent {
   constructor(props) {
@@ -59,19 +65,39 @@ export default class SignUpChooseCity extends BaseComponent {
           </Text>
         </Container>
         <Container style={styles.bottom}>
-          <Button style={styles.chooseCity} onPress={this.openCitiesModal}>
-            <Image
-              source={require("./assets/city.png")}
-              style={styles.chooseCityImage}
+          <Container style={{ flex: 1 }}>
+            <StringInput
+              placeholder={languageManager.translate(
+                this,
+                "FIRST_NAME_PLACEHOLDER"
+              )}
+              style={styles.inputContainer}
+              bind="last_name"
+              isRequired={true}
+              placeholderTextColor={themeManager.getAppTheme().$color5}
             />
-            <Text style={styles.chooseCityText}>
-              {
-                this.state.selectedCity.name[
-                  languageManager.getCurrentLanguage().name
-                ]
-              }
-            </Text>
-          </Button>
+            <StringInput
+              placeholder={languageManager.translate(
+                this,
+                "LAST_NAME_PLACEHOLDER"
+              )}
+              style={styles.inputContainer}
+              bind="last_name"
+              isRequired={true}
+              placeholderTextColor={themeManager.getAppTheme().$color5}
+            />
+
+            <Button style={styles.chooseCity} onPress={this.openCitiesModal}>
+              <Text style={styles.chooseCityText}>
+                {
+                  this.state.selectedCity.name[
+                    languageManager.getCurrentLanguage().name
+                  ]
+                }
+              </Text>
+              <Icon name="ellipsis-v" style={styles.btnCityIcon} />
+            </Button>
+          </Container>
           <Button style={styles.bottomBtn} onPress={this.navToSuccess}>
             <Spinner
               size="small"

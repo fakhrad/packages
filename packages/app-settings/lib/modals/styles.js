@@ -7,7 +7,7 @@ export default EStyleSheet.create({
     height: (deviceHeight * 70) / 100,
     marginVertical: (deviceHeight * 15) / 100,
     marginHorizontal: "5%",
-    borderRadius:10
+    borderRadius: 10
   },
   langsContainer: {
     height: (deviceHeight * 70) / 100,
@@ -20,7 +20,7 @@ export default EStyleSheet.create({
   modalHeader: {
     flexDirection: "row",
     elevation: 2,
-    paddingVertical: 12
+    height:"12%"
   },
   modaActionBtn: {
     flex: 1,
@@ -28,7 +28,7 @@ export default EStyleSheet.create({
   },
   mainAction: {
     borderRightWidth: 1,
-    borderRightColor: "$color5"
+    borderRightColor: "$color4"
   },
   modaActionBtnText: {
     fontSize: "$fontSize4",
